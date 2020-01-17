@@ -26,7 +26,10 @@
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
+function first(array, callback ){
+callback(array[0])
 
+} 
 // Code Here 
 
 // Do not edit the code below.
@@ -47,6 +50,9 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
+function last(array,callback){
+  callback(array[array.length -1])
+}
 //Code Here
 
 // Do not edit the code below.
@@ -65,6 +71,10 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
+function multiply ( num1, num2, callback){
+   return callback(num1 * num2)
+ 
+}
 //Code Here
 
 // Do not edit the code below.
@@ -84,6 +94,14 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
+function contains(arr, name, callback){
+  for(let i = 0; i < arr.length; i++){
+     if(arr [i] === name){
+       callback(true)
+      }
+    }
+ callback(false)
+};
 //Code Here 
 
 // Do not edit the code below.
@@ -105,7 +123,19 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-//Code Here
+function uniq(arr,callback) {
+for(let i = 0; i < arr.length; i++){
+for(let j= i + 1; j < arr.length; j++){
+  if (arr[i] === arr [j]) {
+     arr.splice(j, 1);
+
+  }
+}
+}
+callback(arr)
+}
+
+  //Code Here
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
